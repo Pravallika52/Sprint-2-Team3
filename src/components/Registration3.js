@@ -14,6 +14,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MuiPhoneNumber from 'mui-phone-number';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 const theme = createTheme();
 
@@ -52,7 +56,7 @@ export default function SignUp() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 0,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -79,6 +83,20 @@ export default function SignUp() {
                   autoFocus
                 />
               </Grid>
+              <Grid Grid item xs={12}>
+              <FormControl>
+      <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+      <RadioGroup
+        aria-labelledby="demo-radio-buttons-group-label"
+        defaultValue="female"
+        name="radio-buttons-group"
+      >
+        <FormControlLabel value="female" control={<Radio />} label="Female" />
+        <FormControlLabel value="male" control={<Radio />} label="Male" />
+        <FormControlLabel value="other" control={<Radio />} label="Other" />
+      </RadioGroup>
+    </FormControl>
+              </Grid>
               {/* <Grid item xs={12} sm={6}>
                 <TextField
                   required
@@ -101,7 +119,8 @@ export default function SignUp() {
                   value={formData.emailId}
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
+              <MuiPhoneNumber defaultCountry={'us'} onChange={handleChange}/>
               <MuiPhoneNumber
                     required
                     fullWidth
@@ -112,14 +131,14 @@ export default function SignUp() {
                     value={formData.mobileNo}
                     onChange={handleChange}
                   />
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
                   name="mobileNo"
                   label="Mobile No"
-                  type="number"
+                  type="text"
                   id="mobileNo"
                   autoComplete="new-password"
                   onChange={handleChange}
@@ -152,12 +171,7 @@ export default function SignUp() {
                   value={formData.userConfirmPassword}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
+              
             </Grid>
             <Button
               type="submit"

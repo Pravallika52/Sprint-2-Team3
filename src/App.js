@@ -31,9 +31,9 @@ function App() {
 >
 	Home
 </NavLink> */}
-<header/>
+{/* <header/>
     <a href='Registration2.js'>Register</a>
-    <Registration2/>
+    <Registration2/> */}
     <SignUp/>
     </>
   );
