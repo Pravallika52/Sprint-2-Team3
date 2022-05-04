@@ -31,22 +31,24 @@ function FormComponent() {
         const updatedFormData = { ...formData, [event.target.name]: event.target.value };
         setFormData(updatedFormData);
     }
-    const handleCheckbox = (event) => {
-        const updatedHobbies = event.target.checked ?
-            [...formData.hobbies, event.target.value] : 
-            formData.hobbies.filter(hobby => hobby !== event.target.value)
+    // const handleCheckbox = (event) => {
+    //     const updatedHobbies = event.target.checked ?
+    //         [...formData.hobbies, event.target.value] : 
+    //         formData.hobbies.filter(hobby => hobby !== event.target.value)
 
-        const updatedFormData = { ...formData, hobbies: updatedHobbies };
-        setFormData(updatedFormData);
+    //     const updatedFormData = { ...formData, hobbies: updatedHobbies };
+    //     setFormData(updatedFormData);
 
-    }
+    // }
 
-    const removeThisRow = (id) => {
-        const updatedUserList = userList.filter(user => user.id !== id);
-        setUserList(updatedUserList);
-    }
+    // const removeThisRow = (id) => {
+    //     const updatedUserList = userList.filter(user => user.id !== id);
+    //     setUserList(updatedUserList);
+    // }
 
-    return(<><form onSubmit={handleSubmit}>
+    return(<>
+    <header >Registration</header>
+    <form  onSubmit={handleSubmit}>
         <label> User Id :
             <input name="userId" type="text" onChange={handleChange} value={formData.userId} />
         </label> <br />

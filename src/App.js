@@ -5,6 +5,9 @@ import Registration3 from './components/Registration3';
 import { Link, Route, Routes } from "react-router-dom";
 import Registration2 from './components/Registration2'
 import { NavLink } from 'react-router-dom';
+import header from './components/Header';
+import SignUp from './components/Registration3';
+
 
 function App() {
   return (
@@ -28,10 +31,10 @@ function App() {
 >
 	Home
 </NavLink> */}
-<div className="col-sm-4 right">
-            
-    <a href="registration2">Register</a>
-    </div>
+<header/>
+    <a href='Registration2.js'>Register</a>
+    <Registration2/>
+    <SignUp/>
     </>
   );
 }
