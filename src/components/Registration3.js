@@ -1,18 +1,21 @@
 import { useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+//import UserListTable from "./Table";
+// import TableM from "./TableM";
 
 
 
 function FormComponent() {
 
+    const navigate = useNavigate();
 
     const initialFormState = {
-        userId: Date.now(),
-        userName: '',
-        userType:'',
-        emailId: '',
-        mobileNo:0,
-        userPassword: '',
-        userConfirmPassword:''
+        id: Date.now(),
+        firstname: '',
+        email: '',
+        password: '',
+        gender: '',
+        hobbies: []
     };
 
     const [formData, setFormData] = useState(initialFormState);
@@ -47,32 +50,29 @@ function FormComponent() {
     }
 
     return(<><form onSubmit={handleSubmit}>
-        <label> User Id :
-            <input name="userId" type="text" onChange={handleChange} value={formData.userId} />
+        <label> First Name :
+            <input name="firstname" type="text" onChange={handleChange} value={formData.firstname} />
         </label> <br />
-        <label> User Name :
-            <input name="userName" type="text" onChange={handleChange} value={formData.userName} />
-        </label> <br />
-        <label> Gender :
-            <input type="radio" name="userType" onChange={handleChange} value={"Male"} /> Male
-            <input type="radio" name="userType" onChange={handleChange} value={"Female"} /> Female
+        <label> Email :
+            <input name="email" type="text" onChange={handleChange} value={formData.email} />
         </label><br />
-        <label> Email Id :
-            <input name="emailId" type="text" onChange={handleChange} value={formData.emailId} />
-        </label><br />
-        <label> Mobile No :
-            <input name="mobileNo" type="number" onChange={handleChange} value={formData.mobileNo} />
-        </label> <br />
         <label> Password :
-            <input name="userPassword" type="userPassword" onChange={handleChange} value={formData.userPassword} />
+            <input name="password" type="password" onChange={handleChange} value={formData.password} />
         </label><br />
-        <label> Confirm Password :
-            <input name="userConfirmPassword" type="userConfirmPassword" onChange={handleChange} value={formData.userConfirmPassword} />
+        <label> Gender :
+            <input type="radio" name="gender" onChange={handleChange} value={"Male"} /> Male
+            <input type="radio" name="gender" onChange={handleChange} value={"Female"} /> Female
         </label><br />
-        
+        <label> Hobbies :
+            <input name="soccer" value={"soccer"}  type="checkbox" onChange={handleCheckbox} /> Soccer 
+            <input name="reading" value={"reading"} type="checkbox" onChange={handleCheckbox} /> Reading 
+            <input name="writing" value={"writing"} type="checkbox" onChange={handleCheckbox} /> Writing 
+        </label><br />
         <button type="submit"> Submit </button>
     </form>
     {/* <UserListTable userList={userList} removeThisRow={removeThisRow} /> */}
+    {/* <TableM userList={userList} removeThisRow={removeThisRow} setCurrentUser={setCurrentUser} /> */}
+    <Outlet context={ [ currentUser, setCurrentUser ] } />
     </>)
 }
 
