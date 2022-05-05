@@ -5,9 +5,10 @@ import Registration3 from './components/Registration3';
 import { Link, Route, Routes } from "react-router-dom";
 import Registration2 from './components/Registration2'
 import { NavLink } from 'react-router-dom';
-import header from './components/Header';
+import Header from './components/Header';
 import SignUp from './components/Registration3';
-
+import Background from './components/Background';
+import bg4 from './components/imgs/bg4.png'
 
 function App() {
   return (
@@ -27,16 +28,23 @@ function App() {
     className="navbar-item"
     activeClassName="is-active"
     to="Registration2"
-    exact
->
+    exact>
 	Home
 </NavLink> */}
 {/* <header/>
     <a href='Registration2.js'>Register</a>
     <Registration2/> */}
-    <SignUp/>
+    <div style={{ backgroundImage:`url(${bg4})`, backgroundRepeat:"no-repeat" ,height:750,width:1520}}>
+    <Header/>
+    </div>
+    <div ></div>
+    {/* <SignUp/> */}
+    
     </>
   );
 }
 
 export default App;
+
+
+// backgroundImage:`url(${bg4})`, backgroundRepeat:"no-repeat" ,,height:700,width:1500

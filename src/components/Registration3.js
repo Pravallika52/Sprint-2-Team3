@@ -51,9 +51,11 @@ export default function SignUp() {
     }
 
   return (
+    <div style={{ backgroundColor: 'lightblue', height:750,width:1518}}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        
         <Box
           sx={{
             marginTop: 0,
@@ -70,10 +72,11 @@ export default function SignUp() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
                   name="userName"
+                  variant="filled"
                   required
                   fullWidth
                   id="userName"
@@ -111,6 +114,7 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  variant="filled"
                   id="emailId"
                   label="Email Address"
                   name="emailId"
@@ -136,6 +140,7 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  variant="filled"
                   name="mobileNo"
                   label="Mobile No"
                   type="text"
@@ -149,6 +154,7 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  variant="filled"
                   name="userPassword"
                   label="Password"
                   type="password"
@@ -162,6 +168,7 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  variant="filled"
                   name="userConfirmPassword"
                   label="Confirm Password"
                   type="password"
@@ -193,5 +200,6 @@ export default function SignUp() {
 
       </Container>
     </ThemeProvider>
+    </div>
   );
 }
