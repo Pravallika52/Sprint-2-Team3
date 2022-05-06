@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -6,7 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -18,40 +17,80 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import axios from "axios";
+import Login from "./Login";
+import { Link, Route, Routes } from "react-router-dom";
 
 const theme = createTheme();
 
 export default function SignUp() {
-  
-    const initialFormState = {
-        userId: Date.now(),
-        userName: '',
-        userType:'',
-        emailId: '',
-        mobileNo:0,
-        userPassword: '',
-        userConfirmPassword:''
-    };
 
-    const [formData, setFormData] = useState(initialFormState);
+  const [userName, setUserName]=useState('');
+  const [userType, setUserType]=useState('');
+  const [emailId,setEmailId]=useState('');
+  const [mobileNo, setMobileNo]=useState(null);
+  const [userPassword,setUserPassword]=useState('');
+  const [userConfirmPassword, setUserConfirmPassword]=useState('');
+  const [data, setData]=useState([])
 
-    const [currentUser, setCurrentUser] = useState({});
-    const [userList, setUserList] = useState([]);
+    // const initialFormState = {
+    //     userId:null,
+    //     userName: '',
+    //     userType:'',
+    //     emailId: '',
+    //     mobileNo:null,
+    //     userPassword: '',
+    //     userConfirmPassword:''
+    // };
+
+    // const [formData, setFormData] = useState(initialFormState);
+
+    // const [currentUser, setCurrentUser] = useState({});
+    // const [userList, setUserList] = useState([]);
+
+    useEffect(() => {
+      console.log('compenentDidUpdate');
+  }) // called on mount and every subsequent updates
+
+  useEffect(() => {
+      console.log('compenentDidMount');
+      axios.get('http://localhost:8080/getallusers')
+        .then(res => {console.log("Getting from ::::",res.data)
+        setData(res.data)})
+        .catch(err => console.log(err))
+  }, []) // called only on mount
+
+  useEffect(() => {
+      return () => console.log('componentWillUnmount');
+  }) // called before unmount
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setUserList([...userList, formData]);
-        setFormData({ ...initialFormState, id: Date.now()})
+        axios.post('http://localhost:8080/registeruser',{
+        userName,
+        userType,
+        emailId,
+        mobileNo,
+        userPassword,
+        userConfirmPassword
+    }).then(res => console.log('Posting data',res)).catch(err => console.log(err))
+        // setUserList([...userList, formData]);
+        // setFormData({ ...initialFormState, id: Date.now()})
         // navigate to the home page
         // navigate("/home")
     }
-    const handleChange = (event) => {
-        const updatedFormData = { ...formData, [event.target.name]: event.target.value };
-        setFormData(updatedFormData);
-    }
+    // const handleChange = (event) => {
+    //     const updatedFormData = { ...formData, [event.target.name]: event.target.value };
+    //     setFormData(updatedFormData);
+    // }
+
+    
+
 
   return (
-    <div style={{ backgroundColor: 'lightblue', height:750,width:1518}}>
+    <div style={{ backgroundColor: 'lightblue', height:820,width:1518}}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -72,6 +111,20 @@ export default function SignUp() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
+            {/* <Grid item xs={12}>
+                <TextField
+                  autoComplete="given-name"
+                  name="userId"
+                  variant="filled"
+                  required
+                  fullWidth
+                  id="userId"
+                  label="User Id"
+                  onChange={handleChange}
+                  value={formData.userId}
+                  autoFocus
+                />
+              </Grid> */}
               <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
@@ -81,12 +134,26 @@ export default function SignUp() {
                   fullWidth
                   id="userName"
                   label="User Name"
-                  onChange={handleChange}
-                  value={formData.userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                  value={userName}
                   autoFocus
                 />
               </Grid>
-              <Grid Grid item xs={12}>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="given-name"
+                  name="userType"
+                  variant="filled"
+                  required
+                  fullWidth
+                  id="userType"
+                  label="User Gender"
+                  onChange={(e) => setUserType(e.target.value)}
+                  value={userType}
+                  autoFocus
+                />
+              </Grid>
+              {/* <Grid Grid item xs={12}>
               <FormControl>
       <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
       <RadioGroup
@@ -99,7 +166,7 @@ export default function SignUp() {
         <FormControlLabel value="other" control={<Radio />} label="Other" />
       </RadioGroup>
     </FormControl>
-              </Grid>
+              </Grid> */}
               {/* <Grid item xs={12} sm={6}>
                 <TextField
                   required
@@ -119,8 +186,8 @@ export default function SignUp() {
                   label="Email Address"
                   name="emailId"
                   autoComplete="email"
-                  onChange={handleChange}
-                  value={formData.emailId}
+                  onChange={(e) => setEmailId(e.target.value)}
+                  value={emailId}
                 />
               </Grid>
               {/* <Grid item xs={12}>
@@ -143,11 +210,10 @@ export default function SignUp() {
                   variant="filled"
                   name="mobileNo"
                   label="Mobile No"
-                  type="text"
+                  type="number"
                   id="mobileNo"
-                  autoComplete="new-password"
-                  onChange={handleChange}
-                  value={formData.mobileNo}
+                  onChange={(e) => setMobileNo(e.target.value)}
+                  value={mobileNo}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -160,8 +226,8 @@ export default function SignUp() {
                   type="password"
                   id="userPassword"
                   autoComplete="new-password"
-                  onChange={handleChange}
-                  value={formData.userPassword}
+                  onChange={(e) => setUserPassword(e.target.value)}
+                  value={userPassword}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -174,8 +240,8 @@ export default function SignUp() {
                   type="password"
                   id="userConfirmPassword"
                   autoComplete="new-password"
-                  onChange={handleChange}
-                  value={formData.userConfirmPassword}
+                  onChange={(e) => setUserConfirmPassword(e.target.value)}
+                  value={userConfirmPassword}
                 />
               </Grid>
               
@@ -185,12 +251,13 @@ export default function SignUp() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={handleSubmit}
             >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+              <Link to="/Login">
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -200,6 +267,9 @@ export default function SignUp() {
 
       </Container>
     </ThemeProvider>
+    <Routes>
+      <Route path="/Login/*" element={<Login />} />
+    </Routes>
     </div>
   );
 }
