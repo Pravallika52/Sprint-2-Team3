@@ -80,6 +80,7 @@ export default function SignUp() {
         // setFormData({ ...initialFormState, id: Date.now()})
         // navigate to the home page
         // navigate("/home")
+        
     }
     // const handleChange = (event) => {
     //     const updatedFormData = { ...formData, [event.target.name]: event.target.value };
@@ -139,7 +140,7 @@ export default function SignUp() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
                   name="userType"
@@ -152,21 +153,22 @@ export default function SignUp() {
                   value={userType}
                   autoFocus
                 />
-              </Grid>
-              {/* <Grid Grid item xs={12}>
+              </Grid> */}
+              <Grid Grid item xs={12}>
               <FormControl>
-      <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+      <FormLabel id="userType">Gender</FormLabel>
       <RadioGroup
-        aria-labelledby="demo-radio-buttons-group-label"
+        aria-labelledby="userType"
         defaultValue="female"
         name="radio-buttons-group"
+        
       >
-        <FormControlLabel value="female" control={<Radio />} label="Female" />
-        <FormControlLabel value="male" control={<Radio />} label="Male" />
-        <FormControlLabel value="other" control={<Radio />} label="Other" />
+        <FormControlLabel value="female" control={<Radio />} label="Female" onChange={(e) => setUserType(e.target.value)}/>
+        <FormControlLabel value="male" control={<Radio />} label="Male" onChange={(e) => setUserType(e.target.value)}/>
+        <FormControlLabel value="other" control={<Radio />} label="Other" onChange={(e) => setUserType(e.target.value)}/>
       </RadioGroup>
     </FormControl>
-              </Grid> */}
+              </Grid>
               {/* <Grid item xs={12} sm={6}>
                 <TextField
                   required

@@ -10,8 +10,8 @@ import SignUp from './components/Registration3';
 import Background from './components/Background';
 import bg from './components/imgs/bg.jpg'
 import FormComponent from './components/Registration2';
-import moviesScreen from './components/MoviesScreen';
-
+import Main from './components/Main';
+import Contact from './components/Details/Contact';
 
 function App() {
   return (
@@ -39,12 +39,13 @@ function App() {
     <Registration2/> */}
 
 
-
-
-    <div style={{ backgroundImage:`url(${bg})`, backgroundSize:"cover",backgroundRepeat:"no-repeat" ,height:750,width:1535}}>
-    <Header/>
+    <div >
+    <Main/>
     </div>
-    <div ></div>
+
+
+    {/* <Movies/> */}
+
     {/* <SignUp/> */}
     {/* <Registration3/> */}
     {/* <FormComponent/> */}

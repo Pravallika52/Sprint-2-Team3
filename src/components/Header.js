@@ -8,6 +8,8 @@ import bg from './imgs/bg.jpg';
 import Background from "./Background";
 import Login from "./Login";
 import App from "../App";
+import { Box } from "@mui/system";
+import Movies2 from "./MovieScreens2";
 
 function header1(){
     return(
@@ -17,19 +19,31 @@ function header1(){
           <Typography variant="h6" 
             component="div" sx={{ flexGrow: 1 }}>
             <a href="/App">
-            <h4>MULTIPLEX TICKET BOOKING SYSTEM</h4> 
+            <h4 style={{ Color: 'white'}}>MULTIPLEX TICKET BOOKING SYSTEM</h4> 
             </a>
           </Typography>
-          <Link to="/Login">
+          <Link to="/MovieScreens2" >
+          <Button variant="contained"><h3>Movies Info</h3></Button>
+          </Link>
+          <Link to="/Login" >
           <Button variant="contained"><h3>SignIn</h3></Button>
           </Link>
-          <Link to="/registration3">
+          <Link to="/registration3" >
           <Button variant="contained"><h3>SignUp</h3></Button>
           </Link>
         </Toolbar>
       </AppBar>
       
+      {/* <div style={{ backgroundImage:`url(${bg})`, backgroundSize:"cover",backgroundRepeat:"no-repeat" ,height:750,width:1535}}>
+        <div style={{ color:'whhite',marginLeft: '40%', marginTop: '60px', width: '30%' }}>
+      The Joy Of Movie Tickets Bookings with Just a Few Clicks.<br/>
+        Grab on your popcorn because there are many movies to watch today.<br/>
+        If you want to save some money, don't miss out on our movie offers and discounts. 
+      </div>
+      </div> */}
+      
       <Routes>
+      <Route path="/MovieScreens2/*" element={<Movies2 />} />
       <Route path="/Login/*" element={<Login />} />
         <Route path="/registration3/*" element={<SignUp />}/>
         {/* <Route path="/App" element={<App />} /> */}
