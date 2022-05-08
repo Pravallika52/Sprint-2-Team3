@@ -46,7 +46,6 @@ function header1(){
       <Route path="/MovieScreens2/*" element={<Movies2 />} />
       <Route path="/MainLogin/*" element={<UserLoginPage />} />
         <Route path="/registration3/*" element={<SignUp />}/>
-        {/* <Route path="/App" element={<App />} /> */}
         </Routes>
         </>
     )

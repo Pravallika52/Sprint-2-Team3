@@ -11,7 +11,7 @@ import bg from './components/imgs/bg.jpg'
 import Main from './components/Main';
 import Contact from './components/Details/Contact';
 import MainLogin from './components/MainLogin';
-
+import BookingSeats from './components/SeatBooking';
 
 function App() {
   return (
@@ -38,10 +38,10 @@ function App() {
     <a href='Registration2.js'>Register</a>
     <Registration2/> */}
 
-
-    <div >
+<BookingSeats/>
+    {/* <div >
     <Main/>
-    </div>
+    </div> */}
 
 {/* <MainLogin/> */}
 

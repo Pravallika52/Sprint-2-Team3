@@ -1,16 +1,20 @@
 import React from "react";
-import multiverse1 from './imgs/multiverse1.jpg'
-import runway from './imgs/runway.jpeg'
-import kgf from './imgs/kgf.jpg'
-import Button from "@mui/material/Button";
+import multiverse1 from './imgs/multiverse1.jpg';
+import runway from './imgs/runway.jpeg';
+import kgf from './imgs/kgf.jpg';
 import { Link, Route, Routes } from "react-router-dom";
-import UserLoginPage from "./MainLogin";
+import BookingSeats from "./SeatBooking";
+import Button from "@mui/material/Button";
 
 
 export default function Movies2(){
+
+
     return(
         <>
+        
         <div style={{backgroundColor:'lightblue'}} class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-1tz8m30">
+        <h1>Movies Playing</h1>
             <div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-ctmtb0">
             <img src={multiverse1} alt="Logo" class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1fzgs4v" style={{width:600}} /> 
             <div class="MuiCardContent-root css-10ofaip">
@@ -23,9 +27,7 @@ export default function Movies2(){
             Strange in the Multiverse of Madness" open in theaters from May 6, 2022.
             </p>
             </div>
-            </div><Link to="/MainLogin" >
-          <Button variant="contained"><h3>Book Tickets</h3></Button>
-          </Link>
+            </div>
             </div>
             
             <div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-ctmtb0">
@@ -41,9 +43,9 @@ export default function Movies2(){
             </p>
             </div>
             </div>
-            <Link to="/MainLogin" >
+            {/* <Link to="/Booking" >
           <Button variant="contained"><h3>Book Tickets</h3></Button>
-          </Link>
+          </Link> */}
             </div>
 
             <div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-ctmtb0">
@@ -58,15 +60,31 @@ export default function Movies2(){
             destination.
             </p>
             </div>
-            </div><Link to="/MainLogin" >
-          <Button variant="contained"><h3>Book Tickets</h3></Button>
-          </Link>
             </div>
+            {/* <Link to="/Booking" >
+          <Button onClick={navigate("/Booking")} variant="contained"><h3>Book Tickets</h3></Button>
+          </Link> */}
+            </div>
+
+            <div>
+              <Link to="/SeatBooking">
+              <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Book
+            </Button>
+              </Link>
             </div>
 
             <Routes>
-      <Route path="/MainLogin/*" element={<UserLoginPage />} />
-        </Routes>
+             <Route path="/SeatBooking" element={<BookingSeats/>}/>
+           </Routes>
+            </div>
+
+           
         </>
     )
 
