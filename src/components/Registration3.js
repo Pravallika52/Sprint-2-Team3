@@ -18,8 +18,9 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import axios from "axios";
-import Login from "./Login";
 import { Link, Route, Routes } from "react-router-dom";
+import UserLoginPage from "./MainLogin";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
@@ -33,6 +34,7 @@ export default function SignUp() {
   const [userConfirmPassword, setUserConfirmPassword]=useState('');
   const [data, setData]=useState([])
 
+  const navigate = useNavigate();
     // const initialFormState = {
     //     userId:null,
     //     userName: '',
@@ -76,6 +78,10 @@ export default function SignUp() {
         userPassword,
         userConfirmPassword
     }).then(res => console.log('Posting data',res)).catch(err => console.log(err))
+    setTimeout(() => {
+      navigate("/MainLogin");
+
+    }, 2000);
         // setUserList([...userList, formData]);
         // setFormData({ ...initialFormState, id: Date.now()})
         // navigate to the home page
@@ -259,7 +265,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-              <Link to="/Login">
+              <Link to="/MainLogin">
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -270,7 +276,7 @@ export default function SignUp() {
       </Container>
     </ThemeProvider>
     <Routes>
-      <Route path="/Login/*" element={<Login />} />
+      <Route path="/MainLogin/*" element={<UserLoginPage />} />
     </Routes>
     </div>
   );

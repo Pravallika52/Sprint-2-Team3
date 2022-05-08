@@ -4,7 +4,7 @@ import runway from './imgs/runway.jpeg'
 import kgf from './imgs/kgf.jpg'
 import Button from "@mui/material/Button";
 import { Link, Route, Routes } from "react-router-dom";
-import Login from "./Login";
+import UserLoginPage from "./MainLogin";
 
 
 export default function Movies2(){
@@ -23,7 +23,7 @@ export default function Movies2(){
             Strange in the Multiverse of Madness" open in theaters from May 6, 2022.
             </p>
             </div>
-            </div><Link to="/Login" >
+            </div><Link to="/MainLogin" >
           <Button variant="contained"><h3>Book Tickets</h3></Button>
           </Link>
             </div>
@@ -41,7 +41,7 @@ export default function Movies2(){
             </p>
             </div>
             </div>
-            <Link to="/Login" >
+            <Link to="/MainLogin" >
           <Button variant="contained"><h3>Book Tickets</h3></Button>
           </Link>
             </div>
@@ -58,14 +58,14 @@ export default function Movies2(){
             destination.
             </p>
             </div>
-            </div><Link to="/Login" >
+            </div><Link to="/MainLogin" >
           <Button variant="contained"><h3>Book Tickets</h3></Button>
           </Link>
             </div>
             </div>
 
             <Routes>
-      <Route path="/Login/*" element={<Login />} />
+      <Route path="/MainLogin/*" element={<UserLoginPage />} />
         </Routes>
         </>
     )

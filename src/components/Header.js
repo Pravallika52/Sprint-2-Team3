@@ -6,10 +6,10 @@ import Button from "@mui/material/Button";
 import { Link, Route, Routes } from "react-router-dom";
 import bg from './imgs/bg.jpg';
 import Background from "./Background";
-import Login from "./Login";
 import App from "../App";
 import { Box } from "@mui/system";
 import Movies2 from "./MovieScreens2";
+import UserLoginPage from "./MainLogin";
 
 function header1(){
     return(
@@ -25,7 +25,7 @@ function header1(){
           <Link to="/MovieScreens2" >
           <Button variant="contained"><h3>Movies Info</h3></Button>
           </Link>
-          <Link to="/Login" >
+          <Link to="/MainLogin" >
           <Button variant="contained"><h3>SignIn</h3></Button>
           </Link>
           <Link to="/registration3" >
@@ -44,7 +44,7 @@ function header1(){
       
       <Routes>
       <Route path="/MovieScreens2/*" element={<Movies2 />} />
-      <Route path="/Login/*" element={<Login />} />
+      <Route path="/MainLogin/*" element={<UserLoginPage />} />
         <Route path="/registration3/*" element={<SignUp />}/>
         {/* <Route path="/App" element={<App />} /> */}
         </Routes>

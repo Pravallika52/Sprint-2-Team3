@@ -3,15 +3,15 @@ import Registration3 from './components/Registration3';
 //import { palette } from '@mui/system';
 //import RegisterComponent from './components/registration';
 import { Link, Route, Routes } from "react-router-dom";
-import Registration2 from './components/Registration2'
 import { NavLink } from 'react-router-dom';
 import Header from './components/Header';
 import SignUp from './components/Registration3';
 import Background from './components/Background';
 import bg from './components/imgs/bg.jpg'
-import FormComponent from './components/Registration2';
 import Main from './components/Main';
 import Contact from './components/Details/Contact';
+import MainLogin from './components/MainLogin';
+
 
 function App() {
   return (
@@ -42,6 +42,11 @@ function App() {
     <div >
     <Main/>
     </div>
+
+{/* <MainLogin/> */}
+
+
+
 
 
     {/* <Movies/> */}
