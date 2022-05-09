@@ -5,14 +5,12 @@ import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import MuiPhoneNumber from 'mui-phone-number';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
@@ -35,24 +33,10 @@ export default function SignUp() {
   const [data, setData]=useState([])
 
   const navigate = useNavigate();
-    // const initialFormState = {
-    //     userId:null,
-    //     userName: '',
-    //     userType:'',
-    //     emailId: '',
-    //     mobileNo:null,
-    //     userPassword: '',
-    //     userConfirmPassword:''
-    // };
-
-    // const [formData, setFormData] = useState(initialFormState);
-
-    // const [currentUser, setCurrentUser] = useState({});
-    // const [userList, setUserList] = useState([]);
 
     useEffect(() => {
       console.log('compenentDidUpdate');
-  }) // called on mount and every subsequent updates
+  })
 
   useEffect(() => {
       console.log('compenentDidMount');
@@ -60,11 +44,11 @@ export default function SignUp() {
         .then(res => {console.log("Getting from ::::",res.data)
         setData(res.data)})
         .catch(err => console.log(err))
-  }, []) // called only on mount
+  }, [])
 
   useEffect(() => {
       return () => console.log('componentWillUnmount');
-  }) // called before unmount
+  })
 
 
 
@@ -82,18 +66,7 @@ export default function SignUp() {
       navigate("/MainLogin");
 
     }, 2000);
-        // setUserList([...userList, formData]);
-        // setFormData({ ...initialFormState, id: Date.now()})
-        // navigate to the home page
-        // navigate("/home")
-        
-    }
-    // const handleChange = (event) => {
-    //     const updatedFormData = { ...formData, [event.target.name]: event.target.value };
-    //     setFormData(updatedFormData);
-    // }
-
-    
+    }    
 
 
   return (
@@ -118,20 +91,6 @@ export default function SignUp() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-            {/* <Grid item xs={12}>
-                <TextField
-                  autoComplete="given-name"
-                  name="userId"
-                  variant="filled"
-                  required
-                  fullWidth
-                  id="userId"
-                  label="User Id"
-                  onChange={handleChange}
-                  value={formData.userId}
-                  autoFocus
-                />
-              </Grid> */}
               <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
@@ -146,20 +105,7 @@ export default function SignUp() {
                   autoFocus
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-                <TextField
-                  autoComplete="given-name"
-                  name="userType"
-                  variant="filled"
-                  required
-                  fullWidth
-                  id="userType"
-                  label="User Gender"
-                  onChange={(e) => setUserType(e.target.value)}
-                  value={userType}
-                  autoFocus
-                />
-              </Grid> */}
+              
               <Grid Grid item xs={12}>
               <FormControl>
       <FormLabel id="userType">Gender</FormLabel>
@@ -175,16 +121,7 @@ export default function SignUp() {
       </RadioGroup>
     </FormControl>
               </Grid>
-              {/* <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid> */}
+              
               <Grid item xs={12}>
                 <TextField
                   required
@@ -198,19 +135,7 @@ export default function SignUp() {
                   value={emailId}
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-              <MuiPhoneNumber defaultCountry={'us'} onChange={handleChange}/>
-              <MuiPhoneNumber
-                    required
-                    fullWidth
-                    id="mobileNo"
-                    name="mobileNo"
-                    label="Mobile Number"
-                    defaultCountry={"india"}
-                    value={formData.mobileNo}
-                    onChange={handleChange}
-                  />
-              </Grid> */}
+              
               <Grid item xs={12}>
                 <TextField
                   required

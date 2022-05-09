@@ -116,8 +116,8 @@ function validate({userName, emailId, userPassword, confirmPassword}) {
   }
   if (!userPassword) {
     errors.userPassword = 'Password is required';
-  } else if (userPassword.length < 6) {
-    errors.userPassword = 'Password needs to be 6 characters or more';
+  } else if (userPassword.length < 8) {
+    errors.userPassword = 'Password needs to be 8 characters or more';
   }
   return errors;
 }

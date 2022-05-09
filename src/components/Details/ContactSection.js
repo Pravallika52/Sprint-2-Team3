@@ -5,6 +5,10 @@ import ContactInfoItem from './ContactInfoItem';
 import SectionTitle from './SectionTitle';
 import styled from 'styled-components';
 import { textAlign } from '@mui/system';
+import Avatar from '@mui/material/Avatar';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { SvgIcon } from '@mui/material';
 
 const ContactSectionStyle = styled.div`
   padding: 0.5rem;
@@ -21,21 +25,35 @@ export default function ContactSection() {
   return (
     <ContactSectionStyle>
       <div style={{backgroundColor:'lightblue'}}>
-        <SectionTitle heading="Know us"/>
+        <SectionTitle heading=""/><br/>
+        <SectionTitle heading="Project Partners:"/>
         <div className="contactSection__wrapper" >
-          <div className="left">
+          <div >
             <ContactInfoItem icon={<MdLocalPhone />} text="Pravallika Gokeda- 7893444536" />
-            <ContactInfoItem icon={<MdLocalPhone />} text="IndeeVara - 9371296562" />
-            <ContactInfoItem icon={<MdLocalPhone />} text="Sireesha - 6305685478" />
-            <ContactInfoItem icon={<MdLocalPhone />} text="Prakash - 7780501378" />
-            <ContactInfoItem icon={<MdLocalPhone />} text="Vishal - 9381254635" />
+            <ContactInfoItem icon={<MdLocalPhone />} text="Indee Vara Lalam - 9381996567" />
+            <ContactInfoItem icon={<MdLocalPhone />} text="Korla Sai Sireesha - 6305695429" />
+            <ContactInfoItem icon={<MdLocalPhone />} text="Karanam Prakash Jeevan  - 7780601398" />
+            <ContactInfoItem icon={<MdLocalPhone />} text="Jannu Vishaal - 9381254635" />
             </div>
-            <div className="right">
+            <div >
+            <br/>
+              <a href='www.linkedin.com/in/pravallika-gokeda-8095061a4'>
+              <LinkedInIcon /></a><br/><br/><br/><br/>
+              <a href='www.linkedin.com/in/indee-vara-lalam-998828205'>
+              <LinkedInIcon /></a><br/><br/><br/><br/>
+              <a href='www.linkedin.com/in/korla-sai-sireesha-416296207'>
+              <LinkedInIcon /></a><br/><br/><br/><br/><br/>
+              <a href='www.linkedin.com/in/karanam-prakash-jeevan-5a432a207'>
+              <LinkedInIcon /></a><br/><br/><br/><br/>
+              <a href='www.linkedin.com/in/vishaal-jannu-96229b207'>
+              <LinkedInIcon /></a>
+            </div>
+            <div >
             <ContactInfoItem icon={<MdEmail />} text="pravallikagokeda@gmail.com" />
-            <ContactInfoItem icon={<MdEmail />} text="indeevara@gmail.com" />
-            <ContactInfoItem icon={<MdEmail />} text="sireesha@gmail.com" />
-            <ContactInfoItem icon={<MdEmail />} text="prakash@gmail.com" />
-            <ContactInfoItem icon={<MdEmail />} text="vishal@gmail.com" />
+            <ContactInfoItem icon={<MdEmail />} text="indulalam26@gmail.com" />
+            <ContactInfoItem icon={<MdEmail />} text="sireesha.korla10@gmail.com" />
+            <ContactInfoItem icon={<MdEmail />} text="rakashjeevan2000@gmail.com" />
+            <ContactInfoItem icon={<MdEmail />} text="vishaaljannu@gmail.com" />
           </div>
         </div>
       </div>

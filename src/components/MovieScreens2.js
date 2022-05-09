@@ -12,7 +12,6 @@ export default function Movies2(){
 
     return(
         <>
-        
         <div style={{backgroundColor:'lightblue'}} class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-1tz8m30">
         <h1>Movies Playing</h1>
             <div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-ctmtb0">
@@ -67,7 +66,7 @@ export default function Movies2(){
             </div>
 
             <div>
-              <Link to="/SeatBooking">
+              <Link to="./SeatBooking">
               <Button
               type="submit"
               fullWidth
@@ -80,7 +79,7 @@ export default function Movies2(){
             </div>
 
             <Routes>
-             <Route path="/SeatBooking" element={<BookingSeats/>}/>
+             <Route path="./SeatBooking" element={<BookingSeats/>}/>
            </Routes>
             </div>
 
